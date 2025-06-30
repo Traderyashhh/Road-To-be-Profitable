@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "echo": "^0.1.9",
+    "git": "^0.1.5",
+    "react-toast": "^1.0.3",
+    "react-toastify": "^11.0.5"
+  }
+}

@@ -1,0 +1,127 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+  max-width: 90%;
+}
+
+/* Glowing Main Name */
+.glow-text {
+  margin-bottom: -10px;
+  font-size: 8vw; /* responsive font */
+  font-weight: bold;
+  color: #fff;
+  text-shadow:
+    0 0 10px red,
+    0 0 20px orange,
+    0 0 30px yellow,
+    0 0 40px green,
+    0 0 50px blue,
+    0 0 60px indigo,
+    0 0 70px violet;
+  animation: glowAnimation 3s linear infinite;
+}
+
+/* Glowing Subtext */
+.glow {
+  font-size: 4vw; /* responsive font */
+  font-weight: bold;
+  color: #fff;
+  text-shadow:
+    0 0 10px red,
+    0 0 20px orange,
+    0 0 30px yellow,
+    0 0 40px green,
+    0 0 50px blue,
+    0 0 60px indigo,
+    0 0 70px violet;
+  animation: glowAnimation 1s linear infinite;
+}
+
+@keyframes glowAnimation {
+  0%, 100% {
+    text-shadow:
+      0 0 10px red,
+      0 0 20px orange,
+      0 0 30px yellow,
+      0 0 40px green,
+      0 0 50px blue,
+      0 0 60px indigo,
+      0 0 70px violet;
+  }
+  50% {
+    text-shadow:
+      0 0 20px violet,
+      0 0 30px indigo,
+      0 0 40px blue,
+      0 0 50px green,
+      0 0 60px yellow,
+      0 0 70px orange,
+      0 0 80px red;
+  }
+}
+
+/* Start Button */
+.glow-button {
+  margin-top: 30px;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 8px;
+  cursor: pointer;
+  animation: glowBtn 3s infinite;
+  transition: 0.3s;
+}
+
+@keyframes glowBtn {
+  0% {
+    box-shadow: 0 0 10px red, 0 0 20px orange, 0 0 30px yellow;
+    border-color: red;
+  }
+  33% {
+    box-shadow: 0 0 10px green, 0 0 20px cyan, 0 0 30px blue;
+    border-color: green;
+  }
+  66% {
+    box-shadow: 0 0 10px violet, 0 0 20px pink, 0 0 30px red;
+    border-color: violet;
+  }
+  100% {
+    box-shadow: 0 0 10px red, 0 0 20px orange, 0 0 30px yellow;
+    border-color: red;
+  }
+}
+
+.glow-button:hover {
+  background-color: white;
+  color: black;
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .glow-text {
+    font-size: 12vw;
+  }
+
+  .glow {
+    font-size: 5vw;
+  }
+
+  .glow-button {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}

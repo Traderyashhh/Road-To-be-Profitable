@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment - Yash Balwani Courses</title>
+  <style>
+    body {
+      background: black;
+      color: white;
+      font-family: 'Segoe UI', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .course-name {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #00ff99;
+      text-shadow: 0 0 10px #00ff99;
+      text-align: center;
+    }
+
+    .qr-box {
+      border: 2px solid #00ffaa;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #00ffaa;
+      background: #111;
+    }
+
+    .qr-box img {
+      width: 260px;
+      height: 260px;
+    }
+
+    .utr-label {
+      margin-top: 30px;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    input[type="text"] {
+      margin-top: 10px;
+      padding: 10px;
+      width: 250px;
+      border: 2px solid #ff00cc;
+      border-radius: 6px;
+      background: black;
+      color: white;
+      font-size: 16px;
+      box-shadow: 0 0 10px #ff00cc;
+    }
+
+    .submit-btn {
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: black;
+      border: 2px solid #00ffcc;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00ffcc;
+      transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #00ffcc;
+      color: black;
+    }
+
+    .note {
+      font-size: 14px;
+      margin-top: 15px;
+      color: #aaa;
+      text-align: center;
+    }
+
+    /* Toast Styles */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0f0;
+      color: black;
+      padding: 14px 24px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+      font-weight: bold;
+      opacity: 0;
+      animation: fadein 0.5s forwards, fadeout 0.5s 2.5s forwards;
+      z-index: 9999;
+    }
+
+    @keyframes fadein {
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeout {
+      to { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="course-name" id="courseTitle">Loading Course...</div>
+
+  <div class="qr-box">
+    <img src="IMG_E3464.JPG" alt="QR Code for Payment">
+  </div>
+
+  <div class="utr-label">
+    Enter Your UTR Number (Transaction ID)
+    <br>
+    <input type="text" placeholder="Enter UTR Number" id="utrInput" />
+  </div>
+
+  <button class="submit-btn" onclick="submitUTR()">Submit</button>
+
+  <div class="note">After payment, enter your UTR to confirm your purchase.</div>
+
+  <!-- Toast Element -->
+  <div id="toast" class="toast" style="display: none;">Toast Message</div>
+
+  <script>
+    // Set course title
+    const params = new URLSearchParams(window.location.search);
+    const course = params.get('course');
+    document.getElementById("courseTitle").innerText = course ? `Pay for: ${course}` : "Pay for Course";
+
+    // Custom Toast Function
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.style.display = "block";
+      setTimeout(() => {
+        toast.style.display = "none";
+      }, 3000);
+    }
+
+    function submitUTR() {
+      const utr = document.getElementById("utrInput").value.trim();
+      if (utr.length < 5) {
+        showToast("⚠️ Please enter a valid UTR number.");
+        return;
+      }
+
+      showToast("✅ UTR submitted successfully!");
+      // Send data to backend here if needed
+    }
+  </script>
+
+</body>
+</html>

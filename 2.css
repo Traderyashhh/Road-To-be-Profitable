@@ -1,0 +1,167 @@
+/* Global Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', monospace;
+  color: white;
+}
+
+body {
+  background-color: #000;
+  padding: 20px;
+}
+
+/* Welcome Text */
+.welcome {
+  text-align: center;
+  font-size: 5vw;
+  margin-bottom: 30px;
+  color: #0f0;
+  text-shadow:
+    0 0 5px #0f0,
+    0 0 10px #0f0,
+    0 0 20px #0f0,
+    0 0 40px #00ff99;
+}
+
+/* Section Heading */
+.video-shelf h2 {
+  font-size: 4.5vw;
+  color: #00e6e6;
+  margin: 20px 0;
+  text-shadow: 0 0 10px #00e6e6;
+  text-align: center;
+}
+
+/* Shelf */
+.shelf-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 10px;
+  scrollbar-color: #444 #000;
+}
+
+.shelf-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.shelf-scroll::-webkit-scrollbar-thumb {
+  background: #00ffaa;
+  border-radius: 5px;
+}
+
+/* Video Card */
+.video-card {
+  flex: 0 0 auto;
+  width: 300px;
+  background: #111;
+  border: 2px solid #00ffcc;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+  transition: transform 0.3s ease, box-shadow 0.3s;
+}
+
+.video-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00ffcc, 0 0 40px #00ffcc;
+}
+
+.video-card img {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* Info Section */
+.video-info {
+  padding: 15px;
+  background-color: #000;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.video-info h4 {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #00ff99;
+  text-shadow: 0 0 5px #00ff99;
+}
+
+.video-info p {
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* Buy Button */
+.buy-btn {
+  margin-top: 12px;
+  padding: 10px 20px;
+  background: black;
+  border: 2px solid #ff00cc;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow:
+    0 0 5px #ff00cc,
+    0 0 10px #ff00cc,
+    0 0 20px #ff00cc;
+  transition: all 0.3s ease;
+}
+
+.buy-btn:hover {
+  background-color: #ff00cc;
+  color: black;
+  transform: scale(1.1);
+  box-shadow:
+    0 0 10px #ff00cc,
+    0 0 20px #ff00cc,
+    0 0 40px #ff00cc;
+}
+
+/* Mobile & Small Tablet Optimization */
+@media (max-width: 768px) {
+  .video-shelf h2 {
+    font-size: 6vw;
+  }
+
+  .video-card {
+    width: 240px;
+  }
+
+  .buy-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome {
+    font-size: 7vw;
+  }
+
+  .video-shelf h2 {
+    font-size: 7vw;
+  }
+
+  .video-card {
+    width: 220px;
+  }
+
+  .video-info h4 {
+    font-size: 14px;
+  }
+
+  .video-info p {
+    font-size: 12px;
+  }
+
+  .buy-btn {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+}
